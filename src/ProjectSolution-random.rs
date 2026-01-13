@@ -44,8 +44,7 @@ struct Deck {
 }
 
 impl Deck{
-    fn new(&mut self){
-        
+    fn new(&mut self){   
         for itemSuit in Suit::ALL.iter(){
             for itemRank in Rank::ALL.iter(){
                 self.cards.push(Card{rank:*itemRank, suit:Some(*itemSuit)})
@@ -57,16 +56,17 @@ impl Deck{
     }
     
     fn insertar_comodines_2(&mut self, joker:Vec<Card>) {
-        
-        let pos1=(0..2).map(|_| rng().random_range(0..52)).collect::<Vec<usize>>();
+        let my_rng=rng();
+        let pos1=(0..2).map(|_| my_rng.random_range(0..52)).collect::<Vec<usize>>();
         println!("{pos1:?}");
         self.cards.insert(pos1[0],joker[0]);
         self.cards.insert(pos1[1], joker[1]);
     }
     fn delete_random(&mut self){
+        let mut my_rng=rng();
         //if rng().random_ratio(65,100){
-        if rng().random_bool(0.65){
-            let pos_to_delete:usize=rng().random_range(0..52);
+        if my_rng.random_bool(0.65){
+            let pos_to_delete:usize=my_rng.random_range(0..52);
             self.cards.remove(pos_to_delete);
         }
     }
