@@ -51,7 +51,7 @@ impl Deck{
                 self.cards.push(Card{rank:*itemRank, suit:Some(*itemSuit)})
             }
         }
-        self.cards.shuffle(&mut rng());
+        //self.cards.shuffle(&mut rng());
     }
 }
 
