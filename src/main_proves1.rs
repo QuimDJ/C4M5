@@ -5,5 +5,4 @@ fn main() {
 	let mut my_rng=rng();
     v.shuffle(&mut my_rng);
     println!("{:?}",v);
-
 }
